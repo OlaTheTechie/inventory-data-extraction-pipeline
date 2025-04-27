@@ -1,0 +1,29 @@
+Consider the following scenario: You are building a lifestyle management application that enables families to efficiently track their home inventory and optimise budgeting and purchasing decisions. As part of the system design, you require data pipelines that can (i) process huge volumes of inventory data contained in PDF files uploaded by the users, and (ii) return a structured callback response from aforementioned process to the analytics engine for further analysis. Given the unstructured nature of the data in the PDFs, you need to ensure that there's a repeatable process for parsing the PDFs correctly and extracting the specific information expected in the callback response. To achieve this, your data pipeline must consist of modular processes that parse the document, structure the textual content, and extract key information, respectively.
+
+In this assessment, you are provided with sample inventory data contained in this PDF document. Using this sample data as a guide, your task is to implement a data pipeline that carries out the objectives outlined in the preceeding paragraph. To achieve this, take note of the following:
+
+
+Define 2 classes - OwnerInfo (which represents information about the inventory owner) and Inventory (which represents each item in the inventory data).
+In OwnerInfo, initialise the following attributes: owner_name, owner_address, owner_telephone.
+
+In Inventory, initialise the following attributes: purchase_date, serial_number, description, source_style_area, value.
+Create a function get_data_from_pdf that reads a pdf from path and uses a relevant parser package to extract the content of the pdf. The output of this function should be the raw text extracted from the pdf.
+
+
+Create a function align_content that processes the raw text from the preceding process and aligns them line by line as it appears in the PDF.
+
+
+Create a function extract_data that processes the aligned content to create the final response JSON. In this function you will manipulate the text to extract key information and assign them to the OwnerInfo class and Inventory class attributes respectively.
+In extract_data, create a dictionary that stores the extracted OwnerInfo attributes as first-level objects and the Inventory attributes as second-level objects nested within a "data" object which will be on the same level with the OwnerInfo keys. The "data" object should be a list of dicts, where each dict represents one inventory item.
+
+
+Process dates into ISO format using the datetime package, ensuring dates in the resulting item dicts end up as string values in the format "2022-08-27T00:00:00".
+
+
+Your solution must be completed in Python using only a parser package for initial parsing, Python inbuilt functions and regex for text processing, and the datetime package for handling dates. You are to import no other packages for this task.
+
+SUBMISSION
+Create an appropriate project structure/directory for your solution to the extent you deem fit, including a script for running the end-to-end pipeline and generating the response JSON from the resulting dictionary which will be dumped as a file in your project directory. Upload your project to a public or private GitHub repository and submit the link along with this form. Submission deadline is 6 AM, April 28, 2025.
+
+NOTE:
+We advice against copying this assessment into Chat LLMs to generate a solution as we will find out (this is our specialty) and you will get disqualified. We encourage you to use an LLM for debugging if or where necessary, rather than outsourcing the entire task to it. We expect you to have a thorough understanding of your solution if you do get invited for the interview round.
