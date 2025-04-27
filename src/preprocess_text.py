@@ -2,14 +2,14 @@ import re, pdfplumber, json
 from datetime import datetime
 from src.data_models import OwnerInfo, Inventory
 
-def align_content(text): 
+def align_content(text: str): 
     for line in text: 
         line.strip()
         continue
     return text
 
 
-def extract_data(text):
+def extract_data(text: str):
 
     # the regex patter to search for owner's info in th document
     owner_info_pattern = (

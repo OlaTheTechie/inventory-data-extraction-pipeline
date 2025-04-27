@@ -1,7 +1,7 @@
 import pdfplumber 
 
 
-def get_data_from_pdf(path): 
+def get_data_from_pdf(path: str): 
     with pdfplumber.open(path) as pdf: 
         text = ""
         for page in pdf.pages: 
